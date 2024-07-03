@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
-const Auteur = sequelize.defini('Auteur', {
+const Auteur = sequelize.define('Auteur', {
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
@@ -15,12 +15,10 @@ const Auteur = sequelize.defini('Auteur', {
         type: DataTypes.STRING,
         allowNull: false
     },
-    datanaissance: {
-        type: DataTypes.DATA,
+    datenaissance: {
+        type: DataTypes.DATE,
         allowNull: false
-    },
-}, {
-    timestamps: false
+    }
 });
 
 module.exports = Auteur;
