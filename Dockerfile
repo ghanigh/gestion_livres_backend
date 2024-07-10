@@ -1,20 +1,11 @@
-# IMAGE
-FROM node:16.13.2-alpine
+FROM node:14
 
-# REPERTOIRE DE TRAVAIL DANS LE CONTAINER
 WORKDIR /app
 
-#COPIER PACKAGE.JSON
-COPY package*.json ./
-
-# INSTALLER LES DEPENDANCES
+COPY package.json ./
+COPY package-lock.json ./
 RUN npm install
 
-# COPIER LE RESTE DES FICHIERS
-COPY . .
-
-# EXPOSE LE PORT QUE NOTRE APPLICATION UTILISE
+COPY . ./
 EXPOSE 3000
-
-# DEMARRAGE DE L'APPLICATION
-CMD ["node", "server.js"]
+CMD ["npm", "start"]
